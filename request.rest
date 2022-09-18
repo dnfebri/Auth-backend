@@ -1,0 +1,42 @@
+// Create User
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "name": "Febri 4",
+  "email": "febri4@urbanathletes.co.id",
+  "password": "Urban1234",
+  "confPassword": "Urban1234",
+  "role": 2
+}
+
+###
+// get All user
+GET http://localhost:5000/users
+
+###
+// get Single user
+GET http://localhost:5000/users/89c77ed4-98c8-481f-9f75-3ebab95c3589
+
+###
+// Update User
+PATCH http://localhost:5000/users/89c77ed4-98c8-481f-9f75-3ebab95c3589
+Content-Type: application/json
+
+{
+  "name": "Febri Update",
+  "email": "febri@urbanathletes.co.id",
+  "password": "",
+  "confPassword": "",
+  "role": 1
+}
+
+###
+// Delete User
+# DELETE http://localhost:5000/users/89c77ed4-98c8-481f-9f75-3ebab95c3589
+DELETE http://localhost:5000/users
+Content-Type: application/json
+
+{
+  "id": "fa1e7ded-7979-44bb-80fc-db3a88626c6c"
+}

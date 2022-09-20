@@ -3,8 +3,8 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-  "name": "Febri 4",
-  "email": "febri4@urbanathletes.co.id",
+  "name": "Admin",
+  "email": "adminfebri@urbanathletes.co.id",
   "password": "Urban1234",
   "confPassword": "Urban1234",
   "role": 2
@@ -16,16 +16,16 @@ GET http://localhost:5000/users
 
 ###
 // get Single user
-GET http://localhost:5000/users/89c77ed4-98c8-481f-9f75-3ebab95c3589
+GET http://localhost:5000/users/da63a8a9-d3c7-4d80-be6b-63dbb43a18da
 
 ###
 // Update User
-PATCH http://localhost:5000/users/89c77ed4-98c8-481f-9f75-3ebab95c3589
+PATCH http://localhost:5000/users/0f795b1f-c1e8-422d-a5b4-b1b2b11aeb8b
 Content-Type: application/json
 
 {
-  "name": "Febri Update",
-  "email": "febri@urbanathletes.co.id",
+  "name": "Super Admin Update",
+  "email": "admin@urbanathletes.co.id",
   "password": "",
   "confPassword": "",
   "role": 1
@@ -40,3 +40,23 @@ Content-Type: application/json
 {
   "id": "fa1e7ded-7979-44bb-80fc-db3a88626c6c"
 }
+
+###
+// Login User
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "email": "admin@urbanathletes.co.id",
+  "password": "Urban1234"
+}
+
+###
+// get Auth
+GET http://localhost:5000/auth/me
+Content-Type: application/json
+
+###
+// Logout User
+DELETE http://localhost:5000/logout
+Content-Type: application/json

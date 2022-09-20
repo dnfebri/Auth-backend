@@ -2,14 +2,21 @@ import express from "express";
 import cors from "cors";
 import session from "express-session";
 import dotenv from "dotenv";
-import UserRoute from "./routes/UserRoute.js"
-import ProductRoute from "./routes/ProductRoute.js"
+import SequelizeStore from "connect-session-sequelize";
 
-// ## Generate database tables
-// import db from "./config/Database.js";
+import indexRoute from "./routes/index.js";
+
+// // ## Generate database tables
+import db from "./config/Database.js";
 // (async()=>{
 //   await db.sync();
 // })();
+
+const sessionStore = SequelizeStore(session.Store);
+
+const store = new sessionStore({
+  db: db
+})
 
 dotenv.config();
 
@@ -19,6 +26,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
+  store: store,
   cookie: {
     secure: "auto"
   }
@@ -29,8 +37,9 @@ app.use(cors({
   origin: 'http://localhost:3000'
 }));
 app.use(express.json());
-app.use(UserRoute);
-app.use(ProductRoute);
+app.use(indexRoute);
+
+// store.sync(); // Generete table session (active kan jika belum ada table nya di database)
 
 app.listen(process.env.APP_PORT, () => {
   console.log("Server up and running...");

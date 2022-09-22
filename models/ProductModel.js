@@ -7,7 +7,7 @@ const { DataTypes } = Sequelize;
 const Product = db.define('product', {
   uuid: {
     type: DataTypes.STRING,
-    defaultValue: DataTypes.UUID4,
+    defaultValue: DataTypes.UUIDV4,
     allowNull: false,
     validate: {
       notEmpty: true
@@ -28,7 +28,7 @@ const Product = db.define('product', {
       notEmpty: true
     }
   },
-  price: {
+  userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     validate: {

@@ -1,0 +1,33 @@
+// get All Product
+GET http://localhost:5000/products
+Content-Type: application/json
+
+###
+// get Singgel Product
+GET http://localhost:5000/products/6e3d1e48-7315-474d-8f6d-34c339777cea
+Content-Type: application/json
+
+###
+// Create Product
+POST http://localhost:5000/products/
+Content-Type: application/json
+
+{
+  "name": "product 5 admin",
+  "price": 5234
+}
+
+###
+// Update Product
+PATCH http://localhost:5000/products/85eee292-3f84-4c7c-8d6c-bcd2f866f720
+Content-Type: application/json
+
+{
+  "name": "product 4 update febri",
+  "price": 423401
+}
+
+###
+// Delete Product
+DELETE http://localhost:5000/products/56c3e966-f749-48d1-a045-995a88871e30
+Content-Type: application/json
